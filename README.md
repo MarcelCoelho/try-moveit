@@ -25,8 +25,8 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 
 - **React JS** -> Frontend
   - [Axios](https://github.com/axios/axios)
-  - [ContextApi]
-  - [Nextjs]
+  - [ContextApi](https://pt-br.reactjs.org/docs/context.html)
+  - [Nextjs](https://nextjs.org/docs)
 
 ---
 
