@@ -1,34 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+  <img src="https://ik.imagekit.io/y5nxjfh6lt/icon_xgQE4oNIT.png"        alt="Be The Hero" width="120">  
+</h1>
 
-## Getting Started
+<div align="center" style=background-color:transparent>
+  
 
-First, run the development server:
+</div>
 
+# Indice
+ - [Sobre](#-sobre)
+ - [Tecnologias e Bibliotecas](#-tecnologias-e-bibliotecas-utilizadas)
+ - [Baixar e Instalar](#-como-baixar-e-executar-o-projeto)
+
+# 📖 Sobre
+
+O projeto **Moveit** foi criado durante a **NLW#04** com foco em #REACT com propósito de ajudar as pessoas a terem ciclos de estudos mais controlados, para evitar desgastes físicos em curto, médio e longo prazo. Assim, a cada tarefa completada o usuário subirá de nível, recendo então novos desafios para o próximo ciclo...
+
+---
+
+# ⌨ Tecnologias e Bibliotecas utilizadas
+
+O projeto foi desenvolvido utilizando as seguintes tecnologias
+
+
+- **React JS** -> Frontend
+  - [Axios](https://github.com/axios/axios)
+  - [ContextApi]
+  - [Nextjs]
+
+---
+
+## 🖊 Como baixar e executar o projeto
+  
 ```bash
-npm run dev
-# or
-yarn dev
+  
+  # clonar o repositório para diretório local
+  $ git clone https://github.com/MarcelCoelho/try-moveit
+
+  # Ingressar no diretório do módulo específico
+  $ cd <folder-name-module>
+
+  # Instalar todas as dependências do projeto
+  $ yarn install
+
+  # Iniciar o projeto
+  $ yarn dev
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+# 👨‍🦱 Desenvolvido por Marcel Santo
