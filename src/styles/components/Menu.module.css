@@ -1,0 +1,44 @@
+
+.menuContainer {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 112px;
+  height: 100%;
+  background: #2D2B35;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.menuContainer img {
+  margin-top:1rem;
+   
+  width: 54px;
+  height: 54px;
+
+  transition: filter 0.2s;
+
+}
+
+.menuBar {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rem;
+  border: blue;
+  cursor: pointer;
+    
+}
+.menuBar:hover {
+  filter: brightness(0.9);
+}
+
+.menuHome {
+  height: 32px;
+}
+
+.menuRanking{
+  margin-top: 1rem;
+}

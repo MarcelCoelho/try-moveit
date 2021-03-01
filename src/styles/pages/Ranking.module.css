@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  max-width: 992px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;   
+}
+
+.card {
+  margin-top: 80px;  
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  background: var(--gray-line);
+  border-radius: 5px;
+  height: 5rem;
+}
+
+.cardPosition {
+  align-items: center;
+  margin-left: 1.5rem;
+}
+
+.cardPosition span {
+  font-size: 2rem;
+}
+
+.cardProfile {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.cardProfile > img {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid var(--orange);
+  border-radius: 50%;
+  align-items: center;
+}
+
+.cardProfile div {
+  margin-left: 1rem;
+}
+
+.cardProfile div strong {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: black;
+}
+
+.cardPprofile div p {
+  font-size: 0.1rem;
+  margin-top: 0.7rem;
+  color: var(--gray-line);
+}
+.cardProfile div img {
+  margin-right: 0.5rem;
+}
+
+.cardChallenge {
+  display: flex;
+  align-items: center;
+  margin-left: 15rem;
+}
+
+.cardExperience {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
