@@ -18,8 +18,7 @@
    
   width: 54px;
   height: 54px;
-
-  transition: filter 0.2s;
+ 
 
 }
 
@@ -31,14 +30,52 @@
   cursor: pointer;
     
 }
-.menuBar:hover {
-  filter: brightness(0.9);
-}
+
 
 .menuHome {
   height: 32px;
+  transition: filter 0.2s;
+}
+
+.menuHome p {
+  align-content: center;
+  margin-left: 2rem;
+}
+
+.menuHome:hover {
+  filter: brightness(0.9);
+  border-left: 3px solid var(--orange);
 }
 
 .menuRanking{
   margin-top: 1rem;
+  transition: filter 0.2s;
+}
+
+.menuRanking p {
+  align-content: center;
+  margin-left: 2rem;
+}
+
+.menuRanking:hover {
+  filter: brightness(0.9);
+  border-left: 3px solid var(--orange);
+}
+
+.menuLogout {
+  width: 7rem;
+  align-content: center;
+  justify-content: center;  
+  margin-top: 15rem;
+  transition: filter 0.2s;
+}
+
+.menuLogout p {
+  align-content: center;
+  margin-left: 2rem;
+}
+
+.menuLogout:hover {
+  filter: brightness(0.9);
+  border-left: 4px solid black;
 }

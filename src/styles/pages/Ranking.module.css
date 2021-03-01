@@ -1,14 +1,29 @@
 .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   height: 100%;
   max-width: 992px;
   margin: 0 auto;
+  margin-top: 10rem;
   padding: 2.5rem 2rem;   
 }
 
-.card {
-  margin-top: 80px;  
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: start;
+}
+
+.header span {
+  font-size: 5rem;
+  font: 500 3.5rem "Inter", sans-serif;
+  margin-bottom: 0.5rem;  
+  color: var(--orange);
+}
+
+.card {   
   display: flex;
   flex-direction: row;
   justify-content: left;
@@ -16,21 +31,26 @@
   background: var(--gray-line);
   border-radius: 5px;
   height: 5rem;
+  width: 55rem;
 }
 
-.cardPosition {
+.card div:first-child {
   align-items: center;
   margin-left: 1.5rem;
+  width: 2rem;
+  color: var(--orange);
 }
 
-.cardPosition span {
-  font-size: 2rem;
+.card div:first-child span {
+  font-size: 1.5rem;
+  font-weight: bold;  
 }
 
 .cardProfile {
   display: flex;
   align-items: center;
   margin-left: 2rem;
+  width: 15rem;
 }
 
 .cardProfile > img {
@@ -51,13 +71,12 @@
   color: black;
 }
 
-.cardPprofile div p {
-  font-size: 0.1rem;
-  margin-top: 0.7rem;
-  color: var(--gray-line);
-}
 .cardProfile div img {
   margin-right: 0.5rem;
+}
+
+.cardProfile div span {
+  font-size: 0.8rem;
 }
 
 .cardChallenge {
@@ -66,9 +85,25 @@
   margin-left: 15rem;
 }
 
+.cardChallenge p {
+  font-weight: bold;
+  color: var(--orange);
+}
+.cardChallenge span {
+  margin-left: 3px;
+}
+
 .cardExperience {
   display: flex;
   align-items: center;
-  margin-left: 2rem;
+  margin-left: 6rem;
   margin-right: 2rem;
+}
+
+.cardExperience p {
+  font-weight: bold;
+  color: var(--orange);
+}
+.cardExperience span {
+margin-left: 3px;
 }

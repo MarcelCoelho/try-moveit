@@ -21,6 +21,7 @@ interface UserGithub {
 }
 
 interface ICookies {
+  username: string;
   user: UserGithub;
   level: number;
   currentExperience: number;
@@ -70,19 +71,19 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   const { username } = ctx.params;
 
-  const response = await fetch(`https://api.github.com/users/${username}`);
-  const user = await response.json();
-
   const cookies = new Cookies(ctx.req, ctx.res)
 
-  const id = cookies.get('user_id_' + user.id);
-  const name = cookies.get('user_name_' + user.id);
-  const avatar_url = cookies.get('user_avatar_' + user.id);
-  const level = cookies.get('level_' + user.id);
-  const currentExperience = cookies.get('currentExperience_' + user.id);
-  const challengesCompleted = cookies.get('challengesCompleted_' + user.id);
+  const id = cookies.get(`user_id_${username}`);
+  const name = cookies.get(`user_name_${username}`);
+  const avatar_url = cookies.get(`user_avatar_${username}`);
+  const level = cookies.get(`level_${username}`);
+  const currentExperience = cookies.get(`currentExperience_${username}`);
+  const challengesCompleted = cookies.get(`challengesCompleted_${username}`);
+
+  const usernametype = String(username);
 
   let cookie_data: ICookies = {
+    username: usernametype,
     user: {
       id,
       name: decodeURIComponent(name),
@@ -95,6 +96,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   return {
     props: {
+      username: username,
       user: {
         id: cookie_data.user.id,
         name: cookie_data.user.name,

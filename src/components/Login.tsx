@@ -61,9 +61,10 @@ export function Login() {
 
         if (user?.data && user?.data.name != null) {
           setNotIsValidUser(false);
-          Cookies.set('user_id_' + user.data.id, user.data.id);
-          Cookies.set('user_name_' + user.data.id, user.data.name);
-          Cookies.set('user_avatar_' + user.data.id, user.data.avatar_url);
+          Cookies.set('username_now', userName);
+          Cookies.set(`user_id_${userName}`, user.data.id);
+          Cookies.set(`user_name_${userName}`, user.data.name);
+          Cookies.set(`user_avatar_${userName}`, user.data.avatar_url);
           Cookies.set('users', usersCookies);
           push(`/${userName}`);
         }
@@ -118,7 +119,9 @@ export function Login() {
 
         </form>
         {notIsValidUser &&
-          <span>{errorDescription}</span>
+          <div className={styles.errorLogin}>
+            <span>{errorDescription}</span>
+          </div>
         }
       </div>
 

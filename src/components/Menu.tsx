@@ -1,4 +1,4 @@
-import { Home, Award } from 'react-feather';
+import { Home, Award, LogOut } from 'react-feather';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 
@@ -9,14 +9,18 @@ export function Menu() {
   const { push } = useRouter();
 
   function handleHome() {
-    let username = Cookies.get('user_name');
-    username = username.replace(/\s+/g, '');
+
+    const username = decodeURIComponent(Cookies.get('username_now'));
 
     push(`/${username}`);
   }
 
   function handleRanking() {
     push('/ranking');
+  }
+
+  function handleLogout() {
+    push('/');
   }
 
   return (
@@ -26,13 +30,26 @@ export function Menu() {
 
       <div className={styles.menuBar}>
         <div className={styles.menuHome}>
-          <Home color="#B35710" size={24} onClick={handleHome} />
+          <p>
+            <Home color="#B35710" size={24} onClick={handleHome} />
+          </p>
         </div>
 
         <div className={styles.menuRanking}>
-          <Award color="#B35710" size={24} onClick={handleRanking} />
+          <p>
+            <Award color="#B35710" size={24} onClick={handleRanking} />
+          </p>
         </div>
+
+
+        <div className={styles.menuLogout}>
+          <p>
+            <LogOut color="black" size={24} onClick={handleLogout} />
+          </p>
+        </div>
+
       </div>
+
     </div >
   );
 }

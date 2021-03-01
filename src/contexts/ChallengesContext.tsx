@@ -31,6 +31,7 @@ interface ChallengeContextData {
 }
 
 interface ICookies {
+  username: string;
   user: UserGithub;
   level: number;
   currentExperience: number;
@@ -50,7 +51,8 @@ export function ChallengesProvider({
 }: ChallengesProviderProps) {
 
   const user = rest.cookies?.user;
-  console.log(rest.cookies?.user.avatar_url);
+  const username = rest.cookies?.username;
+
   const [level, setLevel] = useState(rest.cookies?.level ?? 1);
   const [currentExperience, setCurrentExperience] = useState(rest.cookies?.currentExperience ?? 0);
   const [challengesCompleted, setChallengesCompleted] = useState(rest.cookies?.challengesCompleted ?? 0);
@@ -67,11 +69,9 @@ export function ChallengesProvider({
 
   useEffect(() => {
 
-    console.log('useeffect primeiro');
-
-    Cookies.set(`level_${user?.id}`, String(level));
-    Cookies.set(`currentExperience_${user?.id}`, String(currentExperience));
-    Cookies.set(`challengesCompleted_${user?.id}`, String(challengesCompleted));
+    Cookies.set(`level_${username}`, String(level));
+    Cookies.set(`currentExperience_${username}`, String(currentExperience));
+    Cookies.set(`challengesCompleted_${username}`, String(challengesCompleted));
 
   }, [level, currentExperience, challengesCompleted])
 

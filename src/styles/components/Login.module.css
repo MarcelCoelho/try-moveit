@@ -95,6 +95,15 @@
   color: var(--white);
 }
 
+.errorLogin {
+  margin-top: 0.3rem;
+}
+
+.errorLogin span {
+  font-size: 0.8rem;
+  font-family: sans-serif;
+}
+
 @media (max-width: 768px) {
   .buttons {
     display: flex;

@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Menu } from '../components/Menu';
 
-import Cookies from 'cookies';
-import cookie from 'js-cookie';
+import Cookies from 'js-cookie';
 
 import styles from '../styles/pages/Ranking.module.css';
 import { GetServerSideProps } from 'next';
@@ -14,58 +13,121 @@ interface IUserGithub {
 }
 
 interface IRankingData {
+  position: number;
   user: IUserGithub;
   level: number;
   challenges: number;
   experience: number;
 }
 
-interface RankingProps {
-  cookies
-}
+export default function Ranking() {
 
-export default function Ranking(props: RankingProps) {
+  const [registersFilter, setRegistersFilter] = useState<IRankingData[]>([]);
 
-  let [registersFilter, setRegistersFilter] = useState<IRankingData[]>([]);
+  function compararNumeros(a, b) {
+    return a - b;
+  }
+
 
   useEffect(() => {
 
-    for (var i = 0; i < props.cookies; i++) {
+    let registersCookies: IRankingData[] = [];
+    setRegistersFilter([]);
+
+    const cookiesUsers = decodeURIComponent(Cookies.get('users'));
+
+    const users = cookiesUsers.split(',');
+
+    if (users?.length > 0) {
+
+      for (var i = 0; i <= users.length - 1; i++) {
+
+        const username = users[i];
+
+        const id = Cookies.get('user_id_' + username);
+        const name = Cookies.get('user_name_' + username);
+        const avatar_url = Cookies.get('user_avatar_' + username);
+        const level = Cookies.get('level_' + username);
+        const currentExperience = Cookies.get('currentExperience_' + username);
+        const challengeExperience = Cookies.get('challengesCompleted_' + username);
+
+        const data: IRankingData = {
+          position: 0,
+          user: {
+            id,
+            name,
+            avatar_url
+          },
+          level: Number(level),
+          challenges: Number(challengeExperience),
+          experience: Number(currentExperience),
+        };
+
+        registersCookies.push(data);
+      }
+
+      registersCookies = registersCookies.sort((n1, n2) => {
+        if (n1.level < n2.level) {
+          return 1;
+        }
+
+        if (n1.level > n2.level) {
+          return -1;
+        }
+
+        return 0;
+      });
+
+      for (i = 0; i <= registersCookies.length - 1; i++) {
+        registersCookies[i].position = i + 1;
+      }
+
+      setRegistersFilter(registersCookies);
 
     }
-
   }, [])
 
   return (
     <div className={styles.container}>
       <Menu />
 
-      <div className={styles.card}>
+      <div className={styles.header}>
+        <span>Classificação</span>
+      </div>
 
-        <div className={styles.cardPosition}>
-          <span>1</span>
-        </div>
-        <div className={styles.cardProfile}>
+      {registersFilter && registersFilter.map(register => (
 
-          <img src="https://avatars.githubusercontent.com/u/39440678?v=4" alt="" />
-          <div>
-            <strong>Marcel Coelho</strong>
-            <p>
-              <img src="icons/level.svg" alt="" />
-          Level 2</p>
+        <div key={register.user.id} className={styles.card}>
+
+          <div >
+            <span>{register.position}</span>
+          </div>
+
+          <div className={styles.cardProfile}>
+
+            <img src={register.user.avatar_url} alt={register.user.name} />
+            <div>
+              <strong>{register.user.name}</strong>
+              <p>
+                <img src="icons/level.svg" alt="" />
+                <span>Level {register.level}</span>
+              </p>
+            </div>
+
+          </div>
+
+          <div className={styles.cardChallenge}>
+            <p>{register.challenges}</p>
+            <span>desafios</span>
+          </div>
+
+          <div className={styles.cardExperience}>
+            <p>{register.experience}</p>
+            <span>xp</span>
           </div>
 
         </div>
-
-        <div className={styles.cardChallenge}>
-          <span>200 completados</span>
-        </div>
-
-        <div className={styles.cardExperience}>
-          <span>15155 xp</span>
-        </div>
-
-      </div>
+      ))}
 
     </div>
   )
