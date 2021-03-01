@@ -7,6 +7,8 @@ interface UserGithub {
   avatar_url: string;
 }
 
+export { }
+
 // @vercel/node
 // integração para hospedagem da vercel funcionar com servelles em node
 export default async (request: NowRequest, response: NowResponse) => {
