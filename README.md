@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://ik.imagekit.io/y5nxjfh6lt/icon_xgQE4oNIT.png"        alt="Be The Hero" width="120">  
+  MOVE IT  
 </h1>
 
 <div align="center" style=background-color:transparent>
