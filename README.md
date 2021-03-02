@@ -4,8 +4,8 @@
 
 <div align="center" style=background-color:transparent>
   
-  [![Ver Demo](https://user-images.githubusercontent.com/39440678/109580290-1bede700-7ad9-11eb-933e-14c91c54284e.mp4
-)](https://user-images.githubusercontent.com/39440678/109580290-1bede700-7ad9-11eb-933e-14c91c54284e.mp4)
+  [![Clique aqui para ver uma Demo do App](https://user-images.githubusercontent.com/39440678/109580290-1bede700-7ad9-11eb-933e-14c91c54284e.mp4
+)]
 
 
 
