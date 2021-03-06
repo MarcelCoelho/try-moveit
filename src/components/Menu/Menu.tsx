@@ -2,11 +2,12 @@ import { Home, Award, LogOut } from "react-feather";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 
-import { Container, MenuBar } from "../styles/components/MenuStyles";
 import { useContext } from "react";
-import { MenuContext } from "../contexts/MenuContext";
+import { MenuContext } from "../../contexts/MenuContext";
 
-export function MenuStyles() {
+import { Container, MenuBar } from "./styles";
+
+export function Menu() {
   const { push } = useRouter();
 
   const {
@@ -30,6 +31,7 @@ export function MenuStyles() {
   }
 
   function handleLogout() {
+    handleActiveMenuHome();
     push("/");
   }
 

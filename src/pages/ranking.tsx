@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { MenuStyles } from "../components/MenuStyles";
+import { Menu } from "../components/Menu/Menu";
 
 import Cookies from "js-cookie";
 
-import styles from "../styles/pages/Ranking.module.css";
 import { GetServerSideProps } from "next";
 import { ChallengesProvider } from "../contexts/ChallengesContext";
+
+import styles from "../styles/pages/Ranking.module.css";
+import { Container, Rank, Title, Grid } from "../styles/pages/Rank";
 
 interface IUserGithub {
   id: string;
@@ -86,43 +88,86 @@ export default function Ranking() {
 
   return (
     <ChallengesProvider cookies={null}>
-      <div className={styles.container}>
-        <MenuStyles />
+      <Container>
+        <Menu />
 
-        <div className={styles.header}>
+        <Rank>
+          <Title>Classificação</Title>
+
+          <Grid>
+            <span className="header-position">Posição</span>
+            <span className="header-profile">Usuário</span>
+            <span className="header-challenge">Desafios</span>
+            <span className="header-experience">Experiência</span>
+
+            {registersFilter &&
+              registersFilter.map((register) => (
+                <>
+                  <span className="position" key={register.user.id}>
+                    {register.position}
+                  </span>
+                  <span className="profile">
+                    <img
+                      src={register.user.avatar_url}
+                      alt={register.user.name}
+                    />
+                    <div>
+                      <strong>{register.user.name}</strong>
+                      <p>
+                        <img src="icons/level.svg" alt="" />
+                        <span>Level {register.level}</span>
+                      </p>
+                    </div>
+                  </span>
+                  <span className="challenge">{register.challenges}</span>
+                  <span className="experience">{register.experience} xp</span>
+                </>
+              ))}
+          </Grid>
+        </Rank>
+        {/* <Grid>
           <span>Classificação</span>
-        </div>
 
-        {registersFilter &&
-          registersFilter.map((register) => (
-            <div key={register.user.id} className={styles.card}>
-              <div>
-                <span>{register.position}</span>
-              </div>
+          <Header>>
+            <div className="header-position">Posição</div>
+            <div className="header-user">Usuário</div>
+            <div className="header-challenge">Desafios</div>
+            <div className="header-experience">Experiência</div>
+          </Header>
 
-              <div className={styles.cardProfile}>
-                <img src={register.user.avatar_url} alt={register.user.name} />
-                <div>
-                  <strong>{register.user.name}</strong>
-                  <p>
-                    <img src="icons/level.svg" alt="" />
-                    <span>Level {register.level}</span>
-                  </p>
+          {registersFilter &&
+            registersFilter.map((register) => (
+              <Rows key={register.user.id}>
+                <div className="column-position">
+                  <span>{register.position}</span>
                 </div>
-              </div>
 
-              <div className={styles.cardChallenge}>
-                <p>{register.challenges}</p>
-                <span>desafios</span>
-              </div>
+                <div className="column-user">
+                  <img
+                    src={register.user.avatar_url}
+                    alt={register.user.name}
+                  />
+                  <div>
+                    <strong>{register.user.name}</strong>
+                    <p>
+                      <img src="icons/level.svg" alt="" />
+                      <span>Level {register.level}</span>
+                    </p>
+                  </div>
+                </div>
 
-              <div className={styles.cardExperience}>
-                <p>{register.experience}</p>
-                <span>xp</span>
-              </div>
-            </div>
-          ))}
-      </div>
+                <div className="column-challenge">
+                  <p>{register.challenges}</p>
+                </div>
+
+                <div className="column-experience">
+                  <p>{register.experience}</p>
+                  <span>xp</span>
+                </div>
+              </Rows>
+            ))}
+            </Grid>*/}
+      </Container>
     </ChallengesProvider>
   );
 }

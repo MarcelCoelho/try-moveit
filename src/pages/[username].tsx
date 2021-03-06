@@ -12,8 +12,8 @@ import { ChallengeBox } from "../components/ChallengeBox";
 import styles from "../styles/pages/Home.module.css";
 import { CountdownProvider } from "../contexts/CountdownContext";
 import { ChallengesProvider } from "../contexts/ChallengesContext";
-/*import { Menu } from '../components/Menu';*/
-import { MenuStyles } from "../components/MenuStyles";
+
+import { Menu } from "../components/Menu/Menu";
 
 interface UserGithub {
   id: string;
@@ -35,7 +35,7 @@ export default function Challenges(props: ICookies) {
   return (
     <ChallengesProvider cookies={cookie_data}>
       <div className={styles.container}>
-        <MenuStyles />
+        <Menu />
 
         <div className={styles.bodyMoveit}>
           <Head>

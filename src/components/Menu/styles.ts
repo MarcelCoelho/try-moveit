@@ -62,6 +62,7 @@ export const MenuBar = styled.div<IMenuBarProps>`
 
     svg:hover {
       filter: brightness(0.9);
+      color: white;
     }
   }
 
