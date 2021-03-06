@@ -38,10 +38,10 @@ export function Login() {
           baseURL: "https://api.github.com/users",
         });
 
-        const user = await api.get<UserGithub>(`/${userName}`);
+        //const user = await api.get<UserGithub>(`/${userName}`);
 
         //const user = await getUser(userName);
-        //const user = await axios.post<UserGithub>('/api/getUserGithub', { user: userName });
+        const user = await axios.post<UserGithub>('/api/getUserGithub', { user: userName });
 
         const usersRecuperados = Cookies.get('users');
 

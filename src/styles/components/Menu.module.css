@@ -1,25 +1,21 @@
-
 .menuContainer {
   position: absolute;
   left: 0px;
   top: 0px;
   width: 112px;
   height: 100%;
-  background: #2D2B35;
+  background: #2d2b35;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .menuContainer img {
-  margin-top:1rem;
-   
+  margin-top: 1rem;
+
   width: 54px;
   height: 54px;
- 
-
 }
 
 .menuBar {
@@ -28,9 +24,7 @@
   margin-top: 20rem;
   border: blue;
   cursor: pointer;
-    
 }
-
 
 .menuHome {
   height: 32px;
@@ -47,7 +41,7 @@
   border-left: 3px solid var(--orange);
 }
 
-.menuRanking{
+.menuRanking {
   margin-top: 1rem;
   transition: filter 0.2s;
 }
@@ -65,7 +59,7 @@
 .menuLogout {
   width: 7rem;
   align-content: center;
-  justify-content: center;  
+  justify-content: center;
   margin-top: 15rem;
   transition: filter 0.2s;
 }
